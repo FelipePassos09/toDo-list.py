@@ -1,0 +1,24 @@
+{
+    "Types":[
+        {
+            "id": "1",
+            "name": "Tarefa",
+            "description": "Tarefa a ser realizada"
+        },
+        {
+            "id": "2",
+            "name": "Planning",
+            "description": "Planejamento pendente"
+        },
+        {
+            "id": "3",
+            "name": "Implementação",
+            "description": "Componente a ser implementado"
+        },
+        {
+            "id": "4",
+            "name": "Revisão",
+            "description": "revisão de componente"
+        }
+    ]
+}

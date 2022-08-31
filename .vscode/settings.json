@@ -1,0 +1,8 @@
+{
+    "code-runner.executorMap": {
+        
+        "python": "python -u",
+        
+    },
+    "code-runner.runInTerminal": true
+}

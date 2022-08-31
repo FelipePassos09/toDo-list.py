@@ -1,0 +1,24 @@
+{
+    "Priorities":[
+        {
+            "id" : "1",
+            "name" : "Alta",
+            "description" : "Precisa ser concluída em pouco tempo"
+        },
+        {
+            "id" : "2",
+            "name" : "Média",
+            "description" : "Precisa serconcluída, mas pode esperar"
+        },
+        {
+            "id" : "3",
+            "name" : "Baixa",
+            "description" : "Seria bom fazer"
+        },
+        {
+            "id" : "4",
+            "name" : "Quando der",
+            "description" : "Quando for mexer em outra coisa, aproveitar e fazer"
+        }
+    ]
+}

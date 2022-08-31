@@ -1,0 +1,24 @@
+{
+    "Status":[
+        {
+            "id": "1",
+            "name": "Incomplete",
+            "description": "This is a non complete status"
+        },
+        {
+            "id": "2",
+            "name": "Success",
+            "description": "This is a success status"
+        },
+        {
+            "id": "3",
+            "name": "Descontinuated",
+            "description": "This is a unaproved status"
+        },
+        {
+            "id": "4",
+            "name": "Working on",
+            "description": "This is a working on status"
+        }
+    ]
+}
