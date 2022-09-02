@@ -1,52 +1,7 @@
-import json
-import datetime as dt
-import random
-import this
+from items import *
+from consulting import *
 
-class app:
-    def __init__(self, *args,):
-        self.activitieName = args[0]
-        self.activitieType = args[1]
-        self.activitieInit = dt.date(args[2])
-        self.activitieEnd = dt.date(args[2])
-        self.activitiePriority = args[3]
-        self.activitieResume = args[4]
-        self.activitieDescription = args[5]
-        self.activitieStatus = args[6]
-        self.activitieId = args[7]
-        
-    def activitieId():
-        with open("./Database/itemList.json", "r") as itemList:
-            
-            while(True):
-                id = random.randint(0,5000)
-                for item in dict(json.load(itemList))['Activities']:
-                    if id != item["id"]:
-                        return id
-        
-
-    def newActivitie(type, init, end, priority, resume, description, status):
-        id = app.activitieId()
-        
-        attributesItem = {
-            "id" : id,
-            "type": type,
-            "dateInit": init,
-            "dateConc": end,
-            "resume": resume,
-            "priority": priority,
-            "description": description,
-            "status": status
-            }
-        
-        with open('./Database/itemList.json', 'r+', encoding='utf-8') as itemList:
-            data = json.load(itemList)
-            data['Activities'].append(attributesItem)
-            itemList.seek(0)
-            json.dump(data, itemList,indent=4, ensure_ascii=False)
-
-
-# Test input parameters:
+#Test input parameters:
 # tipoItem = "Tarefa"
 # dataInicio = str(dt.date(2022, 8, 31))
 # activitieEnd = str(dt.date(2022, 8, 31))
@@ -55,33 +10,73 @@ class app:
 # activitieDescription = 'ã/õ/í/é/á/ç'
 # activitieStatus = 'Success'
         
-# app.newActivitie(tipoItem, dataInicio, activitieEnd, activitiePriority, activitieResume, activitieDescription, activitieStatus) 
-    
-while True:
-    tipoItem = input('Que tipo de tarefa pretende criar?  ')
-    print('Qual a data de inicio da atividade:  ')
-    dataInicio = str(dt.date(
-        year = int(input("Ano:  ")),
-        month = int(input("Mês:  ")),
-        day = int(input("Dia:  "))
-    ))
-    print('Qual a data de término da atividade: ')
-    activitieEnd = str(dt.date(
-        year = int(input("Ano:  ")),
-        month = int(input("Mês:  ")),
-        day = int(input("Dia:  "))
-    ))
-    activitiePriority = input('Qual a prioridade?  ')
-    activitieResume = input('Dê um título para a atividade:  ')
-    activitieDescription = input('Descrição da atividade:  ')
-    activitieStatus = input('Qual o Status atual da atividade?  ')
+# newItem = items(activitieType = tipoItem, activitieInit= dataInicio, activitieEnd= activitieEnd,activitiePriority= activitiePriority,  activitieResume= activitieResume, activitieDescription= activitieDescription, activitieStatus= activitieStatus)
 
-    app.newActivitie(tipoItem, dataInicio, activitieEnd, activitiePriority, activitieResume, activitieDescription, activitieStatus)
+
+while True:
+    print(f'Bem vindo ao seu gerenciador de tarefas!\n{"-/" *20}-\nPor onde deseja começar:\n')
+    options = ['[ 1 ] - Consultar items.',
+               '[ 2 ] - Resumo de atividades planejadas.',
+               '[ 3 ] - Resumo de atividades atrasadas.',
+               '[ 4 ] - Inserir um novo item.'
+               ]
     
-    cont = input('Quer continuar?\n [ S ] = Sim\n [N] = Não\n')
+    for item in options: print(item, end='\n')
+    choose = int(input("Escolha uma opção:  "))
     
+    if choose == 4:
+        while True:
+            tipo = input('Que tipo de tarefa pretende criar?  ')
+            print('Qual a data de inicio da atividade:  ')
+            dataIni = str(dt.date(
+                year = int(input("Ano:  ")),
+                month = int(input("Mês:  ")),
+                day = int(input("Dia:  "))
+            ))
+            print('Qual a data de término da atividade: ')
+            dataFim = str(dt.date(
+                year = int(input("Ano:  ")),
+                month = int(input("Mês:  ")),
+                day = int(input("Dia:  "))
+            ))
+            prioridade = input('Qual a prioridade?  ')
+            resumo = input('Dê um título para a atividade:  ')
+            descricao = input('Descrição da atividade:  ')
+            status = input('Qual o Status atual da atividade?  ')
+
+            newItem = items(activitieType = tipo, activitieInit= dataIni, activitieEnd= dataFim,activitiePriority= prioridade,  activitieResume= resumo, activitieDescription= descricao, activitieStatus= status)
+            
+            
+            save = input("Salvar atividade?\n [ S ] = Sim\n [ N ] = Não\n")
+            if save.upper() == 'S':
+                items.newActivitie(newItem)
+            
+            cont = input('Quer continuar?\n [ S ] = Sim\n [ N ] = Não\n')
+            
+            if cont.upper() == 'N':
+                break
+    
+    if choose == 1:
+        while True:
+            print('[ 1 ] Consultar um item especifico:')
+            print('[ 2 ] Ver a lista de items')
+            print('[ 3 ] Ver os items a vencer')
+            
+            choose = int(input("Insira a opção desejada:  "))
+        
+        
+            cont = input('Quer continuar?\n [ S ] = Sim\n [ N ] = Não\n')
+                
+            if cont.upper() == 'N':
+                break
+
+
+    cont = input('Quer continuar?\n [ S ] = Sim\n [ N ] = Não\n')
+                
     if cont.upper() == 'N':
-        break
+        break 
+            
+        
     
     
 print('Done')                

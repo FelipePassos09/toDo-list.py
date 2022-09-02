@@ -59,6 +59,36 @@
             "priority": "Baixa",
             "description": "ã/õ/í/é/á/ç",
             "status": "Success"
+        },
+        {
+            "id": 4907,
+            "type": "Tarefa",
+            "dateInit": "2022-08-31",
+            "dateConc": "2022-08-31",
+            "resume": "Teste UTF-8",
+            "priority": "Baixa",
+            "description": "ã/õ/í/é/á/ç",
+            "status": "Success"
+        },
+        {
+            "id": 1549,
+            "type": "Teste",
+            "dateInit": "2022-09-01",
+            "dateConc": "2022-09-01",
+            "resume": "Teste Classe",
+            "priority": "Alta",
+            "description": "Teste de input por classe",
+            "status": "Pendente"
+        },
+        {
+            "id": 433,
+            "type": "Planning",
+            "dateInit": "2022-12-24",
+            "dateConc": "2023-01-15",
+            "resume": "Teste Planning",
+            "priority": "Baixa",
+            "description": "Teste demonstração.",
+            "status": "Pendente"
         }
     ]
 }
